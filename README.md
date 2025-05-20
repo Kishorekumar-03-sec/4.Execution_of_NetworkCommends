@@ -1,7 +1,15 @@
 # 4.Execution_of_NetworkCommands
-## AIM :Use of Network commands in Real Time environment
-## Software : Command Prompt And Network Protocol Analyzer
-## Procedure: To do this EXPERIMENT- follows these steps:
+## AIM :
+
+Use of Network commands in Real Time environment
+
+## Software : 
+
+Command Prompt And Network Protocol Analyzer
+
+## Procedure:
+
+To do this EXPERIMENT- follows these steps:
 <BR>
 In this EXPERIMENT- students have to understand basic networking commands e.g cpdump, netstat, ifconfig, nslookup ,traceroute and also Capture ping and traceroute PDUs using a network protocol analyzer 
 <BR>
@@ -26,13 +34,14 @@ This commands includes
 • Other IP Commands e.g. show ip route etc.
 <BR>
 
-## Program
-## Client
-``` py
+## Program :
+
+```
+CLIENT:
 import socket 
 from pythonping import ping 
 s=socket.socket() 
-s.bind(('localhost'8000)) 
+s.bind(('localhost',8080)) 
 s.listen(5) 
 c,addr=s.accept() 
 while True: 
@@ -41,26 +50,25 @@ while True:
         c.send(str(ping(hostname, verbose=False)).encode()) 
     except KeyError: 
         c.send("Not Found".encode())
-```
-## Server
-``` py
+
+SERVER:
+ 
 import socket 
 s=socket.socket() 
-s.connect(('localhost',8000)) 
+s.connect(('localhost',8080)) 
 while True: 
     ip=input("Enter the website you want to ping ") 
     s.send(ip.encode()) 
-    print(s.recv(1024).decode())
+    print(s.recv(1024).decode()) 
 ```
 
-
 ## Output
-## Client
-![image](https://github.com/user-attachments/assets/275935ed-6d78-49d4-ab6c-c3dcbeb6e7a7)
-## Server
-![image](https://github.com/user-attachments/assets/75d2bda8-168e-430a-a7a4-4ca8a804ee46)
+PING command:
 
+![Screenshot 2025-04-17 141323](https://github.com/user-attachments/assets/0c4ff9f0-9592-44b7-8e38-db7744c079a7)
 
+TRACEROUTE command:
+![image](https://github.com/user-attachments/assets/0743fcd9-19f3-4ef8-b31d-0bdd8dc96c5c)
 
 
 ## Result
